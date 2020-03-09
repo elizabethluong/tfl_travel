@@ -12,7 +12,6 @@ export default class App extends Component {
     };
   }
 
-
   onChangeHandler = event => {
     event.preventDefault();
     this.setState({ value: event.target.value });
@@ -26,6 +25,8 @@ export default class App extends Component {
       .then(data => this.setState({ trainline: data }));
   };
 
+
+
   render() {
     return (
       <div className="App">
@@ -33,7 +34,7 @@ export default class App extends Component {
           <Route exact path="/">
             <Search
               state={this.state}
-              addLine={this.onSubmitHandler}
+              submitLine={this.onSubmitHandler}
               typeLine={this.onChangeHandler}
             />
           </Route>
