@@ -20,12 +20,10 @@ export default class App extends Component {
   onSubmitHandler = event => {
     event.preventDefault();
     let lineSearch = this.state.value;
-    fetch(`https://api.tfl.gov.uk/Line/${lineSearch}`)
+    fetch(`https://api.tfl.gov.uk/Line/${lineSearch}` + "/status")
       .then(response => response.json())
       .then(data => this.setState({ trainline: data }));
   };
-
-
 
   render() {
     return (

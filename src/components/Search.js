@@ -1,30 +1,40 @@
 import React from "react";
 
 export default function Search(props) {
-  let aLine = props.state.trainline;
+  let trainline = props.state.trainline;
   let inVal = props.state.value;
-  let tLine = props.typeLine;
   let sLine = props.submitLine;
-  console.log(aLine);
+  let tLine = props.typeLine;
+  console.log(trainline);
   console.log(inVal);
-  console.log(tLine);
   console.log(sLine);
+  console.log(tLine);
 
   return (
-    <div>
+    <div className="trainline">
       <form onSubmit={event => sLine(event)}>
         <input
           type="text"
+          className="input is-danger input is-large"
           value={inVal}
           list="data"
-          placeholder="Search line status"
+          placeholder="Search Line"
           onChange={event => tLine(event)}
         />
         <input type="submit" value="Submit" />
       </form>
-      <div className="lineInfo">
-        <h1>Line: {aLine.name}</h1>
-      </div>
+
+      {trainline.length > 0
+        ? trainline.map((trainline, key) => (
+            <div>
+              <p>Line: {trainline.name}</p>
+              <p>
+                Line status:{" "}
+                {trainline.lineStatuses[0].statusSeverityDescription}
+              </p>
+            </div>
+          ))
+        : null}
     </div>
   );
 }
