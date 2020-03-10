@@ -3,15 +3,17 @@ import React from "react";
 export default function Search(props) {
   let trainline = props.state.trainline;
   let inVal = props.state.value;
+  let lineColour = props.state.tflLineColour;
   let sLine = props.submitLine;
   let tLine = props.typeLine;
   console.log(trainline);
   console.log(inVal);
-  console.log(sLine);
   console.log(tLine);
 
   return (
     <div className="trainline">
+      <h1>Tube Statuses</h1>
+      <p>Type in a Tube line to find out it's status:</p>
       <form onSubmit={event => sLine(event)}>
         <input
           type="text"
@@ -27,9 +29,11 @@ export default function Search(props) {
       {trainline.length > 0
         ? trainline.map((trainline, key) => (
             <div>
-              <p>Line: {trainline.name}</p>
+              <p style={{ backgroundColor: lineColour[trainline] }}>
+                Line: {trainline.name}
+              </p>
               <p>
-                Line status:{" "}
+                Line status:
                 {trainline.lineStatuses[0].statusSeverityDescription}
               </p>
             </div>

@@ -8,7 +8,23 @@ export default class App extends Component {
     super(props);
     this.state = {
       trainline: [],
-      value: ""
+      value: "",
+      tflLineColour: {
+        bakerloo: "#a52a2a",
+        central: "#ff0000",
+        circle: "#ffff00",
+        district: "#008000",
+        dlr: "#20B2AA",
+        "hammersmith-city": "#DB7093",
+        jubilee: "#A9A9A9",
+        "london-overground": "#FF8C00",
+        metropolitan: "#800080",
+        northern: "#000000",
+        piccadilly: "#00008B",
+        tram: "#7FFF00",
+        victoria: "#00CED1",
+        "waterloo-city": "#87CEFA"
+      }
     };
   }
 
