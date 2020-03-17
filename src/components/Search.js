@@ -33,7 +33,7 @@ export default function Search(props) {
                 Line: {trainline.name}
               </p>
               <p>
-                Line status:
+                Line status: 
                 {trainline.lineStatuses[0].statusSeverityDescription}
               </p>
             </div>
